@@ -1,0 +1,84 @@
+﻿<Window x:Class="lab5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab5"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid
+            Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Grid
+                Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Name="textBlock_loadedFiles"
+                    Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="24"
+                    FontWeight="Bold"> Loaded Files
+                </TextBlock>
+                
+                <Button Name="button_addFile"
+                    Grid.Column="1" Click="button_addFile_Click"> ADD FILE
+                </Button>
+            </Grid>
+
+            <ListBox Name="listBox_files"
+                Grid.Row="1" SelectionChanged="listBox_files_SelectionChanged">
+            </ListBox>
+        </Grid>
+        
+        <Grid
+            Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <CheckBox Name="checkBox_autosave"
+                Grid.Row="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"> Autosave?
+            </CheckBox>
+
+            <TextBlock Name="textBlock_fileName"
+                Grid.Row="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20">
+            </TextBlock>
+
+            <TextBox Name="textBox_fileContent"
+                Grid.Row="2"
+                TextWrapping="Wrap"
+                AcceptsReturn="True" TextChanged="textBox_fileContent_TextChanged">
+            </TextBox>
+
+            <Button Name="button_save"
+                Grid.Row="3"
+                FontSize="24" Click="button_save_Click"> SAVE
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
